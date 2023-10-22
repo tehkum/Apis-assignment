@@ -2,7 +2,7 @@ const Student = require("../models/student.model");
 
 const addStudent = async (req, res) => {
   try {
-    const student = req.data;
+    const student = req.body;
     const newStudent = new Student({ ...student });
     const stud = await newStudent.save();
     return res.status(201).json({

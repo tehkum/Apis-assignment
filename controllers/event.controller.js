@@ -2,7 +2,7 @@ const Event = require("../models/event.model");
 
 const addEvent = async (req, res) => {
   try {
-    const event = req.data;
+    const event = req.body;
     const newEvent = new Event({ ...event });
     const stud = await newEvent.save();
     return res.status(201).json({

@@ -2,7 +2,7 @@ const Ward = require("../models/ward.model");
 
 const addWard = async (req, res) => {
   try {
-    const ward = req.data;
+    const ward = req.body;
     const newWard = new Ward({ ...ward });
     const stud = await newWard.save();
     return res.status(201).json({

@@ -2,7 +2,7 @@ const Volunteer = require("../models/volunteer.model");
 
 const addVolunteer = async (req, res) => {
   try {
-    const volunteer = req.data;
+    const volunteer = req.body;
     const newVolunteer = new Volunteer({ ...volunteer });
     const stud = await newVolunteer.save();
     return res.status(201).json({

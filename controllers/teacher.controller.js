@@ -2,7 +2,7 @@ const Teacher = require("../models/teacher.model");
 
 const addTeacher = async (req, res) => {
   try {
-    const teacher = req.data;
+    const teacher = req.body;
     const newTeacher = new Teacher({ ...teacher });
     const tea = await newTeacher.save();
     return res.status(201).json({

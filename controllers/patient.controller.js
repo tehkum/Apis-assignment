@@ -2,7 +2,7 @@ const Patient = require("../models/patient.model");
 
 const addPatient = async (req, res) => {
   try {
-    const patient = req.data;
+    const patient = req.body;
     const newPatient = new Patient({ ...patient });
     const stud = await newPatient.save();
     return res.status(201).json({
