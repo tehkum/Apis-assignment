@@ -6,6 +6,10 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    class: {
+      type: String,
+      required: true,
+    },
     age: {
       type: Number,
       required: true,
