@@ -20,7 +20,7 @@ const addPatient = async (req, res) => {
 
 const getPatient = async (req, res) => {
   try {
-    const patient = await Patient.find();
+    const patient = await Patient.find().populate("assignedWard");
     if (patient.length) {
       return res.status(201).json({
         patient,
