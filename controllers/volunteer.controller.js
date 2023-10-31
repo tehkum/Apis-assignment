@@ -20,7 +20,7 @@ const addVolunteer = async (req, res) => {
 
 const getVolunteer = async (req, res) => {
   try {
-    const volunteer = await Volunteer.find();
+    const volunteer = await Volunteer.find().populate("assignedEvents");
     if (volunteer.length) {
       return res.status(201).json({
         volunteer,
@@ -44,7 +44,9 @@ const editVolunteer = async (req, res) => {
   try {
     const { id } = req.params;
     const data = req.body;
-    const volunteer = await Volunteer.findByIdAndUpdate(id, data, { new: true });
+    const volunteer = await Volunteer.findByIdAndUpdate(id, data, {
+      new: true,
+    });
 
     if (!volunteer) {
       return res.status(404).json({

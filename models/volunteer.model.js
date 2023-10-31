@@ -29,6 +29,7 @@ const volunteerSchema = new mongoose.Schema(
         type: String,
       },
     ],
+    assignedEvents: [{ type: mongoose.Schema.Types.ObjectId, ref: "events" }],
   },
   { timestamps: true }
 );
